@@ -41,7 +41,6 @@ def hit?(card_total)
     deal_card
   elsif input == 's'
     return card_total
-  
   end
 end
 
