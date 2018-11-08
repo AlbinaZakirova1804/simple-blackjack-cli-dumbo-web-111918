@@ -6,7 +6,7 @@ def deal_card
   rand 1..11
 end
 
-def display_card_total(card_total=7)
+def display_card_total(card_total)
     puts "Your cards add up to #{card_total}"
    return card_total
 end
@@ -30,11 +30,11 @@ end
 
 def hit?(card_total)
   prompt_user
-  get_user_input
-  if get_user_input == 'h' 
+  input = get_user_input
+  if input == 'h' 
     deal_card
-  elsif get_user_input == 's'
-    return nill
+  elsif input == 's'
+    return card_total
   else 
     invalid_command
     prompt_user
@@ -51,11 +51,11 @@ end
 
 def runner
   welcome
-  initial_round
-  until card_total == 21 do
-  hit?(card_total)
-  display_card_total(card_total)
+  card_total = initial_round
+  until card_total > 21 do
+    hit?(card_total)
+    display_card_total(card_total)
   end
-end_game(card_total)
+  end_game(card_total)
 end
     
